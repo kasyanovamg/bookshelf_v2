@@ -1,0 +1,132 @@
+/* Animation of the header text */
+h1 {
+	font-size: 70px;
+	color:  #edeaea;
+	font-weight: bold;
+	font-family: 'Roboto', serif;
+	text-shadow: 3px 3px 6px #000;
+	overflow: hidden;
+  	white-space: nowrap;
+  	margin: 0 auto 20px auto; 
+  	letter-spacing: .05em; 
+  	animation: typing 2s steps(500, end), blink-caret .5s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+ /* 	background-color: #39414F;  */
+    background-image: -webkit-linear-gradient(left, #39414F, #5a5869);
+    background-image: -o-linear-gradient(left, #39414F, #5a5869);
+    background-image: linear-gradient(to right, #39414F, #5a5869);
+}
+header {
+	margin: 28px 0 0 20px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: bold;
+}
+#edition_field {
+	display: none;
+	color: #fff;
+	margin: 20px;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.6);
+}
+#edition_field > form > p {
+	font-size: 14px;
+	font-weight: bold;
+}
+#edition_field > form > p > input {
+	width: 98%;
+	margin-top: 6px;
+	padding: 6px;
+}
+.image {
+	background: #dbdbdb;
+	width: 100px;
+	height: 150px;
+}
+.table_of_books {
+    display: block;
+    color: #fff;
+	margin: 20px;
+	background: rgba(0, 0, 0, 0.6);
+}
+table {	
+  	width: 100%;
+  	border-spacing: 0;
+}
+td { 
+	line-height: 26px;
+	border-bottom: 1px solid #000;
+	vertical-align: middle;
+}
+tr:hover{
+	background: rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 2px 2px 6px 2px #000;
+	-webkit-box-shadow: 2px 2px 6px 2px #000;
+	box-shadow: 2px 2px 6px 2px #000;
+}
+tr:hover td:first-child {
+	border-left: 4px solid #375467;
+}
+tr td:first-child {
+	width: 100px;
+}
+tr td:last-child {
+	width: 120px;
+}
+tr td {
+	padding: 20px;
+	border-left: 4px solid transparent;
+}
+button {
+	cursor: pointer;
+ 	color: #ffffff;
+ 	font-size: 15px;
+ 	background: #4B7793;
+ 	padding: 10px 20px 10px 20px;
+ 	text-decoration: none;
+ 	border: none;
+}
+button:hover {
+ 	background: #375467;
+ 	text-decoration: none;
+}
+button:focus {
+	outline: none;
+}
+#cancel_book, .del {
+	background: #bf3030;
+}
+#cancel_book:hover, .del:hover {
+	background: #7d1e1e;
+}
+#edit, #del {
+	color: #fff;
+	background: none;
+	border: 1px solid #d3d3d3;
+	width: 140px;
+}
+#edit:hover {
+	background: #4B7793;
+} 
+#del:hover {
+	background: #bf3030;
+}
+footer {
+	color: #fff;
+  	position:fixed;
+  	right: 0;
+  	left: 0;
+  	padding: 10px;
+  	text-align: center;
+	background-color: #21252b;
+	bottom: 0;
+}
