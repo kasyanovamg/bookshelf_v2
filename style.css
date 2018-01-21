@@ -130,3 +130,28 @@ footer {
 	background-color: #21252b;
 	bottom: 0;
 }
+
+/* media queries (for responsiveness) */
+@media screen and (min-width: 1200px) {
+	body {
+		margin: 0 auto;
+		width:  1100px;
+	}
+}
+/* 
+@media screen and (min-width: 769px and max-width: 1199px) {
+	nothing here yet
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+	nothing here yet
+} 
+*/
+@media screen and (max-width: 576px) {
+	h1 {
+		font-size: 40px;
+		white-space: normal;
+	}
+	td {
+		display:  block;
+	}
+}
