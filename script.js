@@ -25,6 +25,36 @@ Book.prototype.saveEdit = function() {
 }
 
 
+//on submit creates newBook object, either adds book to table or updates the info
+$("form").on("submit", function(e){	
+	e.preventDefault();
+	if (editing) {
+
+		book_name = new_name.text();
+		author_name = new_author.text();
+		publish_year = new_year.text();
+		pic_url = new_link.text();
+		newBook = new Book(book_name, author_name, publish_year, pic_url);	
+		
+		newBook.saveEdit();
+		editing = false;
+	} else {
+
+	book_name = $("#book_name").val();
+	author_name  = $("#author_name").val();
+	publish_year = $("#published").val();
+	pic_url = $("#pic").val();
+	newBook = new Book(book_name, author_name, publish_year, pic_url);
+		
+	table.prepend(newBook.add());
+	clear();
+	}
+
+open_book_edit.hide(300);
+
+});	
+
+
 
 
 
