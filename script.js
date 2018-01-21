@@ -92,6 +92,14 @@ function clear () {
 	$("#pic").val("");
 }
 
+//listens to the event of clicking on DELETE, removes the row
+$("table").on('click', "#del", function() {
+	$(this).closest("tr").fadeOut(300, function(){
+		$(this).remove();
+	});	
+	clear();
+});
+
 
 
 
