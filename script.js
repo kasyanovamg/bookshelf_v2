@@ -54,6 +54,43 @@ open_book_edit.hide(300);
 
 });	
 
+//listens to click on EDIT and stores info in temp variables
+$("table").on('click', "#edit", function(){
+	editing = true;
+	open_book_edit.show(300);
+
+	new_name = $(this).closest("tr").find(".title");
+	new_author = $(this).closest("tr").find(".book_author");
+	new_year = $(this).closest("tr").find(".book_year");
+	new_link  = $(this).closest("tr").find(".image");
+
+	$("#book_name").val(new_name.text());
+	$("#author_name").val(new_author.text());
+	$("#published").val(new_year.text());
+ 	$("#pic").val(new_link.attr("src"));
+});
+
+//toggles add/edit form
+var open_book_edit = $("#edition_field");
+$("#add_book").click(function(){
+    open_book_edit.toggle(300);
+    clear();
+});
+
+//listens to event of cancel button
+$("#cancel_book").click(function() {
+	editing = false;
+	clear();
+	open_book_edit.hide(300);
+});
+
+//clears all inputs
+function clear () {
+	$("#book_name").val("");
+	$("#author_name").val("");
+	$("#published").val("");
+	$("#pic").val("");
+}
 
 
 
