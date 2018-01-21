@@ -4,9 +4,9 @@
 	<title>Книжная полка</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="script3.js"></script>
+	<script src="script.js"></script>
 </head>
 <body>
 	<header>
@@ -19,7 +19,7 @@
 			<p>
 				<label for="book_name">Наименование</label>
 				<br>
-				<input type="text" id="book_name" name="book_name" placeholder="Название книги" >
+				<input type="text" id="book_name" name="book_name" placeholder="Название книги" required>
 			</p>
 			<p>
 				<label for="author_name">Автор</label>
@@ -29,7 +29,7 @@
 			<p>
 				<label for="published">Год выпуска</label>
 				<br>
-				<input type="number" id="published" name="published" placeholder="Год" min="1300"  max="2018" >
+				<input type="number" id="published" name="published" placeholder="Год" min="1300"  max="2018" required>
 			</p>
 			<p>
 				<label for="pic">Изображение</label>

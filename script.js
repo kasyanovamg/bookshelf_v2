@@ -100,10 +100,7 @@ $("table").on('click', "#del", function() {
 	clear();
 });
 
-
-
-
-
-
-
+//demo book
+newBook = new Book("JavaScript и Jquery", "Дэвид Сойер Макфарланд", "2017", "http://www.rulit.me/data/programs/images/bolshaya-kniga-css3_435316.jpg");
+table.prepend(newBook.add());
 });
