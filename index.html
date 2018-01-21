@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  lang="ru">
+<head>
+	<title>Книжная полка</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="script3.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Книжная полка</h1>
+		<button id="add_book">Добавить книгу</button>
+	</header>
+	<div id="edition_field">
+		<h3>Редактирование книги</h3>
+		<form>
+			<p>
+				<label for="book_name">Наименование</label>
+				<br>
+				<input type="text" id="book_name" name="book_name" placeholder="Название книги" >
+			</p>
+			<p>
+				<label for="author_name">Автор</label>
+				<br>
+				<input type="text" id="author_name" name="author_name" placeholder="Автор книги">
+			</p>
+			<p>
+				<label for="published">Год выпуска</label>
+				<br>
+				<input type="number" id="published" name="published" placeholder="Год" min="1300"  max="2018" >
+			</p>
+			<p>
+				<label for="pic">Изображение</label>
+				<br>
+				<input type="text" id="pic" name="pic" placeholder="Вставьте URL">
+			</p>
+			<p>
+				<button id="save_book" type="submit" name="del_btn">Сохранить</button>
+				<button id="cancel_book" type="button" name="can_btn">Отменить</button>
+			</p>
+		</form>
+	</div>
+	<div class="table_of_books">
+		<table></table>
+	</div>
+	<footer>
+		Mariia Kasianova
+	</footer>
+</body>
+</html>
