@@ -1,57 +1,50 @@
 $(document).ready(function(){
 
 var table = $("table");
-//"editing" keeps track of when EDIT button is clicked
-var editing = false;
-var newBook, book_name, author_name, publish_year, pic_url, new_name, new_author, new_year, new_link;
+var editing = false; //keeps track of when EDIT button is clicked
+var newBook, id;
+var number = 0;
+var bookshelf = []; //stores all book objects here
 
 //creating book object
-function Book(name, author, year, link) {
+function Book(name, author, year, link, index) {
 	this.name = name;
 	this.author = author;
 	this.year = year;
 	this.link = link;
+	this.index = index;
     }
 
+//adds new row
 Book.prototype.add = function() {
-	return "<tr><td><img class=\"image\" src=\""+ this.link +"\"/></td><td><div class=\"title\">" + this.name + "</div><div class=\"book_author\">" + this.author + "</div><div><span class=\"book_year\">" + this.year + "</span><span class=\"year_format\"> г.</span></div></td><td><p><button id=\"edit\">Редактировать</button></p><p><button id=\"del\">Удалить</button></p></td></tr>";
+	return "<tr id=\"row" + this.index + "\"><td><img class=\"image"+ this.index +"\" src=\""+ this.link +"\"/></td><td><div class=\"title"+ this.index +"\">" + this.name + "</div><div class=\"book_author"+ this.index +"\">" + this.author + "</div><div><span class=\"book_year"+ this.index +"\">" + this.year + "</span><span class=\"year_format\"> г.</span></div></td><td><p><button id=\"edit\">Редактировать</button></p><p><button id=\"del\">Удалить</button></p></td></tr>";
 } 
-
-Book.prototype.saveEdit = function() {	
-		new_name.text($("#book_name").val());
-		new_author.text($("#author_name").val());
-		new_year.text($("#published").val());
-		new_link.attr("src", ($("#pic").val()));	
-}
-
 
 //on submit creates newBook object, either adds book to table or updates the info
 $("form").on("submit", function(e){	
 	e.preventDefault();
 	if (editing) {
-
-		book_name = new_name.text();
-		author_name = new_author.text();
-		publish_year = new_year.text();
-		pic_url = new_link.text();
-		newBook = new Book(book_name, author_name, publish_year, pic_url);	
-		
-		newBook.saveEdit();
+		bookshelf[id].name = $("#book_name").val();
+		bookshelf[id].author =  $("#author_name").val();
+		bookshelf[id].year = $("#published").val();
+		bookshelf[id].link = $("#pic").val();
+		bookshelf[id].index = id;
+		saveEdit(id);
 		editing = false;
 	} else {
+		var book_name = $("#book_name").val();
+		var author_name  = $("#author_name").val();
+		var publish_year = $("#published").val();
+		var pic_url = $("#pic").val();
 
-	book_name = $("#book_name").val();
-	author_name  = $("#author_name").val();
-	publish_year = $("#published").val();
-	pic_url = $("#pic").val();
-	newBook = new Book(book_name, author_name, publish_year, pic_url);
-		
-	table.prepend(newBook.add());
-	clear();
+		number++ //updates the index
+		newBook = new Book(book_name, author_name, publish_year, pic_url, number);
+			
+		table.prepend(newBook.add());
+		clear();
+		bookshelf.push(newBook);
 	}
-
 open_book_edit.hide(300);
-
 });	
 
 //listens to click on EDIT and stores info in temp variables
@@ -59,16 +52,20 @@ $("table").on('click', "#edit", function(){
 	editing = true;
 	open_book_edit.show(300);
 
-	new_name = $(this).closest("tr").find(".title");
-	new_author = $(this).closest("tr").find(".book_author");
-	new_year = $(this).closest("tr").find(".book_year");
-	new_link  = $(this).closest("tr").find(".image");
-
-	$("#book_name").val(new_name.text());
-	$("#author_name").val(new_author.text());
-	$("#published").val(new_year.text());
- 	$("#pic").val(new_link.attr("src"));
+	id = ($(this).closest("tr").attr('id')).match(/\d+/)[0];
+	$("#book_name").val(bookshelf[id].name);
+	$("#author_name").val(bookshelf[id].author);
+	$("#published").val(bookshelf[id].year);
+ 	$("#pic").val(bookshelf[id].link);
 });
+
+//saves edited book
+saveEdit = function(index) {	
+	$(".title"+ index).text($("#book_name").val());
+	$(".book_author"+ index).text($("#author_name").val());
+	$(".book_year"+ index).text($("#published").val());
+	$(".image"+ index).attr("src", ($("#pic").val()));	
+}
 
 //toggles add/edit form
 var open_book_edit = $("#edition_field");
@@ -101,6 +98,7 @@ $("table").on('click', "#del", function() {
 });
 
 //demo book
-newBook = new Book("JavaScript и Jquery", "Дэвид Сойер Макфарланд", "2017", "http://www.rulit.me/data/programs/images/bolshaya-kniga-css3_435316.jpg");
+newBook = new Book("JavaScript и Jquery", "Дэвид Сойер Макфарланд", "2017", "http://www.rulit.me/data/programs/images/bolshaya-kniga-css3_435316.jpg", number);
+bookshelf.push(newBook);
 table.prepend(newBook.add());
 });

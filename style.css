@@ -1,4 +1,14 @@
-/* Animation of the header text */
+body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+  	background-image: url('books-2463779_1280.jpg');   /* needs optimization for small screens */
+ 	background-repeat: repeat-y;
+ 	background-repeat: repeat-x;
+}
+header {
+	margin: -26px 20px 0 20px;
+	text-align: center;
+}
 h1 {
 	font-size: 70px;
 	color:  #edeaea;
@@ -9,25 +19,13 @@ h1 {
   	white-space: nowrap;
   	margin: 0 auto 20px auto; 
   	letter-spacing: .05em; 
-  	animation: typing 2s steps(500, end), blink-caret .5s step-end infinite;
+  	background: rgba(0, 0, 0, 0.7);
+  	padding: 20px;
+  	-moz-box-shadow: 2px 2px 6px 2px #000;
+	-webkit-box-shadow: 2px 2px 6px 2px #000;
+	box-shadow: 2px 2px 6px 2px #000;
 }
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-body {
-	font-family: Arial, sans-serif;
-	padding: 20px;
- /* 	background-color: #39414F;  */
-    background-image: -webkit-linear-gradient(left, #39414F, #5a5869);
-    background-image: -o-linear-gradient(left, #39414F, #5a5869);
-    background-image: linear-gradient(to right, #39414F, #5a5869);
-}
-header {
-	margin: 28px 0 0 20px;
-}
-
-.title {
+td div:first-child {
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -47,10 +45,10 @@ header {
 	margin-top: 6px;
 	padding: 6px;
 }
-.image {
+td img {
 	background: #dbdbdb;
 	width: 100px;
-	height: 150px;
+	height: 140px;
 }
 .table_of_books {
     display: block;
@@ -119,6 +117,16 @@ button:focus {
 } 
 #del:hover {
 	background: #bf3030;
+}
+#add_book {
+	-webkit-box-shadow: 2px 2px 3px #1f1f1f;
+    -moz-box-shadow: 2px 2px 3px #1f1f1f;
+    box-shadow: 2px 2px 3px #1f1f1f;
+    padding: 15px 30px 15px 30px;
+    font-size: 30px;
+}
+#add_book:hover {
+    box-shadow: 0 0 0 #1f1f1f;
 }
 footer {
 	color: #fff;
