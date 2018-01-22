@@ -98,7 +98,7 @@ $("table").on('click', "#del", function() {
 });
 
 //demo book
-newBook = new Book("JavaScript и Jquery", "Дэвид Сойер Макфарланд", "2017", "http://www.rulit.me/data/programs/images/bolshaya-kniga-css3_435316.jpg", number);
+newBook = new Book("JavaScript и Jquery", "Дэвид Сойер Макфарланд", "2017", "bookexample.jpg", number);
 bookshelf.push(newBook);
 table.prepend(newBook.add());
 });
