@@ -106,16 +106,16 @@ button:focus {
 #cancel_book:hover, .del:hover {
 	background: #7d1e1e;
 }
-#edit, #del {
+.edit, .del {
 	color: #fff;
 	background: none;
 	border: 1px solid #d3d3d3;
 	width: 140px;
 }
-#edit:hover {
+.edit:hover {
 	background: #4B7793;
 } 
-#del:hover {
+.del:hover {
 	background: #bf3030;
 }
 #add_book {

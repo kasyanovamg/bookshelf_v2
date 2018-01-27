@@ -17,7 +17,23 @@ function Book(name, author, year, link, index) {
 
 //adds new row
 Book.prototype.add = function() {
-	return "<tr id=\"row" + this.index + "\"><td><img class=\"image"+ this.index +"\" src=\""+ this.link +"\"/></td><td><div class=\"title"+ this.index +"\">" + this.name + "</div><div class=\"book_author"+ this.index +"\">" + this.author + "</div><div><span class=\"book_year"+ this.index +"\">" + this.year + "</span><span class=\"year_format\"> г.</span></div></td><td><p><button id=\"edit\">Редактировать</button></p><p><button id=\"del\">Удалить</button></p></td></tr>";
+	return `<tr id="row${this.index}">
+	<td>
+		<img class="image${this.index}" src="${this.link}"/>
+	</td>
+	<td>
+		<div class="title${this.index}">${this.name}</div>
+		<div class="book_author${this.index}">${this.author}</div>
+		<div>
+			<span class="book_year${this.index}">${this.year}</span>
+			<span class="year_format"> г.</span>
+		</div>
+	</td>
+	<td>
+		<p><button class="edit">Редактировать</button></p>
+		<p><button class="del">Удалить</button></p>
+	</td>
+	</tr>`;
 } 
 
 //on submit creates newBook object, either adds book to table or updates the info
@@ -48,7 +64,7 @@ open_book_edit.hide(300);
 });	
 
 //listens to click on EDIT and stores info in temp variables
-$("table").on('click', "#edit", function(){
+$("table").on('click', ".edit", function(){
 	editing = true;
 	open_book_edit.show(300);
 
@@ -90,7 +106,7 @@ function clear () {
 }
 
 //listens to the event of clicking on DELETE, removes the row
-$("table").on('click', "#del", function() {
+$("table").on('click', ".del", function() {
 	$(this).closest("tr").fadeOut(300, function(){
 		$(this).remove();
 	});	
